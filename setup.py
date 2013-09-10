@@ -14,6 +14,6 @@ setup(name='pykindle',
       author='Dhananjay Nene',
       author_email='dhananjay.nene@gmail.com',
       url='http://github.com/dnene/pykindle',
-      packages=['pykindle'],
+      py_modules=['pykindle'],
       install_requires = requires,
      )

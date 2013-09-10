@@ -37,3 +37,7 @@ nosetests.xml
 # Other directories
 
 _site
+
+# Generated file
+
+kindle_highlights.html
