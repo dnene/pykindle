@@ -30,9 +30,11 @@ def get_highlights_inner(br, books):
                 "author": book.find("span", class_ = "author").string.strip()[3:] 
                                  }
         for highlight_div in(highlighted_books.find_all("div", class_="highlightRow")) :
-            text = highlight_div.find("span", class_="highlight").string.strip()
-            book_id = highlight_div.find("span", class_="asin").string.strip()
-            books[book_id]["highlights"].append(text)
+            raw_text = highlight_div.find("span", class_="highlight")
+            if raw_text :
+                text = raw_text.string.strip()
+                book_id = highlight_div.find("span", class_="asin").string.strip()
+                books[book_id]["highlights"].append(text)
     try :
         br.follow_link(br.find_link(text="Next Book"))
         get_highlights_inner(br, books)
